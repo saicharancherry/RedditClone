@@ -12,9 +12,11 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import datetime
+import dj_database_url
+import decouple
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR =os.path.dirname(os.path.abspath(__file__)) #os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +28,7 @@ SECRET_KEY = 'p=$#g^(t-bf(vw$!i&@4)gb=@l!+pza1@y8+r+3!+fi@bptug('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['redditmrnd.herokuapp.com','127.0.0.1:8000']
 
 
 # Application definition
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'whitenoise.runserver_nostatic',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
@@ -76,15 +79,18 @@ WSGI_APPLICATION = 'reddit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME':'redditdb',
-        'HOST': 'localhost',
-        'USER':"root",
-        'PASSWORD': ""
-    }
-}
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE':'django.db.backends.mysql',
+#         'NAME':'redditdb',
+#         'HOST': 'localhost',
+#         'USER':"root",
+#         'PASSWORD': ""
+#     }
+# }
 
 
 # Password validation
@@ -123,12 +129,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 
 
 WEBPACK_LOADER = {
