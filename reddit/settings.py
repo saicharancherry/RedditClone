@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'reddit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://miuaxyiuemiqoq:0dc8e2a0ce60d4bc5253d40bb1b909e583d241191cf7b2cd9535a654d839e630@ec2-107-22-169-45.compute-1.amazonaws.com:5432/dfh3m31rjbo9v3')
-
-
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 # DATABASES = {
 #     'default': {
