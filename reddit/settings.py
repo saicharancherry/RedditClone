@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import dj_database_url
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -76,16 +77,20 @@ WSGI_APPLICATION = 'reddit.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME':'redditdb',
-        'HOST': 'localhost',
-        'USER':"root",
-        'PASSWORD': ""
-    }
+    'default': dj_database_url.config(default='postgres://miuaxyiuemiqoq:0dc8e2a0ce60d4bc5253d40bb1b909e583d241191cf7b2cd9535a654d839e630@ec2-107-22-169-45.compute-1.amazonaws.com:5432/dfh3m31rjbo9v3')
+
+
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE':'django.db.backends.mysql',
+#         'NAME':'redditdb',
+#         'HOST': 'localhost',
+#         'USER':"root",
+#         'PASSWORD': ""
+#     }
+# }
 
 
 # Password validation
