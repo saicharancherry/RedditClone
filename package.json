@@ -56,7 +56,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+      "eject": "react-scripts eject",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "redux-devtools-extension": "^2.13.5",
