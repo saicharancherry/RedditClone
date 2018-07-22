@@ -60,6 +60,10 @@
       "eject": "react-scripts eject",
     "postinstall": "npm run build"
   },
+   "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
   "devDependencies": {
     "redux-devtools-extension": "^2.13.5",
     "webpack-bundle-tracker": "^0.3.0"
