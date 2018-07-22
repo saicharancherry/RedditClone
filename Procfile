@@ -1,1 +1,2 @@
-web: gunicorn reddit.wsgi --log-file -
+release: python manage.py migrate
+web: gunicorn redditmrnd.wsgi --log-file -
