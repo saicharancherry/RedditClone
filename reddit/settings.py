@@ -28,7 +28,7 @@ SECRET_KEY = 'p=$#g^(t-bf(vw$!i&@4)gb=@l!+pza1@y8+r+3!+fi@bptug('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mrndreddit.herokuapp.com',]
 
 
 # Application definition
