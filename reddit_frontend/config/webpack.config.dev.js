@@ -222,7 +222,6 @@ module.exports = {
       inject: true,
       template: paths.appHtml,
     }),
-    new BundleTracker({path: paths.statsRoot, filename: 'webpack-stats.dev.json'}),
 
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
@@ -246,6 +245,8 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new BundleTracker({path: paths.statsRoot, filename: 'webpack-stats.dev.json'}),
+
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
