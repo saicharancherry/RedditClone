@@ -156,8 +156,10 @@ class Userposts(APIView):
         #RC=set(RC)
         L=[]
         for x in RC:
-            for y in Post.objects.filter(pcid__rid__rfield=x.get('rid__rfield')).values('uid__username','pcid__rid__rfield','ptime','pdata','pid'):
+            for y in Post.objects.filter(community__rfield=x.get('rid__rfield')).values('uid__username','community__rfield','ptime','pdata','pid'):
                 L.append(y)
+            # for y in Post.objects.filter(pcid__rid__rfield=x.get('rid__rfield')).values('uid__username','pcid__rid__rfield','ptime','pdata','pid'):
+            #     L.append(y)
             # l=[y for y in Post.objects.filter(pcid__rid__rfield=x.get('rid__rfield')).values() for x in RC]
         #
         #     #u=User.objects.get(username=kwargs.get('username'))
@@ -177,7 +179,7 @@ class Create_post(APIView):
         cl=Community_list.objects.get(rfield=data['optionvalue'])
         u=User.objects.get(username=data['username'])
         urc=User_registered_comunities.objects.filter(rid=cl,uid=u)[0]
-        p=Post.objects.create(uid=u,pdata=data['postdata'],pcid=urc,ptime=timezone.now())
+        p=Post.objects.create(uid=u,pdata=data['postdata'],pcid=urc,ptime=timezone.now(),community=cl)
         p.save()
         return HttpResponse({'status':'post submited'},status=200)
     def delete(self,request):

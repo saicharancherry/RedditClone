@@ -8,7 +8,7 @@ from rest_framework import serializers
 class Community_list(models.Model):
     rid=models.AutoField(primary_key=True)
     rname=models.CharField(max_length=20)
-    rfield=models.CharField(max_length=20)
+    rfield=models.CharField(max_length=20,unique=True)
 
     def __str__(self):
         return "Community models..."
@@ -27,7 +27,8 @@ class Post(models.Model):
     pid=models.AutoField(primary_key=True)
     uid=models.ForeignKey(User,on_delete=models.CASCADE)
     pdata=models.CharField(max_length=300,null=True)
-    pcid=models.ForeignKey(User_registered_comunities,on_delete=models.CASCADE)
+    pcid=models.ForeignKey(User_registered_comunities,null=True,on_delete=models.SET_NULL)
+    community=models.ForeignKey(Community_list,on_delete=models.CASCADE)
     ptime=models.DateTimeField(auto_now=True)
     pimage=models.ImageField(upload_to=get_photo_path,blank=True,null=True)
     upvote=models.IntegerField(default=0)
