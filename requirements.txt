@@ -6,3 +6,4 @@ django-heroku
 djangorestframework
 djangorestframework-jwt
 django-cors-headers
+decouple
