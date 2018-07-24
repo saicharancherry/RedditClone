@@ -1,6 +1,3 @@
-import os,django
-os.environ.setdefault("DJANGO_SETTINGS_MODULE","reddit.settings")
-django.setup()
 from django.db import models
 from django.contrib.auth.models import User
 from rest_framework import serializers
