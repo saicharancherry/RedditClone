@@ -1,4 +1,4 @@
-import {FETCH_POSTS,NEW_POSTS,FETCH_COMMINITIES,DELETEPOST,FETCHPRIVATE_POSTS, SUBSCRIBE} from './types';
+import {FETCH_POSTS,NEW_POSTS,FETCH_COMMINITIES,DELETEPOST,FETCHPRIVATE_POSTS, SUBSCRIBE,NEW_COMMUNITY} from './types';
 
 export const fetchPosts=(username,token)=>dispatch=>{
     console.log('post fetching......\nusername: token:')
@@ -77,6 +77,30 @@ export const createPost=(postData,token)=>dispatch=>{
 }))
       
 } 
+
+export const createComm=(postData,token)=>dispatch=>{
+    console.log('communitiesfetching......')
+    console.log(this.state,this.props)
+    fetch("http://127.0.0.1:8000/createcommunity/",{
+        method:'POST',
+        body:JSON.stringify(postData),
+        credentials:'same-origin',
+        headers:new Headers({
+            'Authorization':'JWT '+ token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }),
+        mode:'cors',
+    }
+).then(function(response){
+    return response;
+}).then((jsondata)=> dispatch({
+    type: NEW_COMMUNITY,
+    payload : postData,
+}))
+      
+} 
+
 
 export const subscribeCommunity=(value,name,token)=>dispatch=>{
     console.log('communitiesfetching......')

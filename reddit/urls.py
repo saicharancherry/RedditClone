@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^login/auth-jwt-refresh/', refresh_jwt_token),
     path('subscribecommunity/', SubscribeCommunity.as_view(),name='communities'),
     path('deletepost/', Create_post.as_view(), name='communities'),
+    path('createcommunity/', Create_community.as_view(), name='communities'),
     path('communities/', get_Privatecommunitylist.as_view(), name='communities'),
     path('communitylist/<slug:username>/',get_communitylist.as_view(),name='communitylist'),
     path('posts/<slug:username>/',Userposts.as_view(),name='userposts'),
@@ -37,3 +38,4 @@ urlpatterns = [
     url(r'^', TemplateView.as_view(template_name="index.html")),
 
 ]
+#http://127.0.0.1:8000/createpost/

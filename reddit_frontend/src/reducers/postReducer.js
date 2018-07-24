@@ -1,4 +1,4 @@
-import { FETCH_POSTS, LOGAUTH, NEW_POSTS,LOGIN ,USER_POSTS,LOGOUT,FETCH_COMMINITIES,DELETEPOST,FETCHPRIVATE_POSTS,SUBSCRIBE} from '../actions/types';
+import { FETCH_POSTS, LOGAUTH, NEW_POSTS,LOGIN ,USER_POSTS,LOGOUT,FETCH_COMMINITIES,DELETEPOST,FETCHPRIVATE_POSTS,SUBSCRIBE,NEW_COMMUNITY} from '../actions/types';
 import Cookies from 'universal-cookie';
 
 const initialState={
@@ -11,6 +11,7 @@ const initialState={
     token:[],
     postcreated:[],
     privateposts:[],
+    communitycreated:0,
     
 }
 
@@ -47,18 +48,27 @@ export default function(state = initialState,action){
                     ...state,
                     comminities: action.payload,
                 }
+                
         case SUBSCRIBE:
                 console.log(action.payload)
                 action.payload=parseInt(action.payload,10)
                 const newcomm=state.comminities.filter(item=>{
-                    return item.rid!==action.payload
+                    if(item.rid!==action.payload){
+                        return 1
+                    }
+                    if(item.isuser===1){
+                        item.isuser=0
+                        return 1
+                    }
+                    item.isuser=1
+                    return 1
                 });
-                //state.comminities=newcomm
+                state.comminities=newcomm
                 console.log(state.comminities,newcomm)
                 console.log('end')
                 return{
                     ...state,
-                    //comminities: ,
+                    comminities:newcomm ,
                 }
             
         case NEW_POSTS:
@@ -67,10 +77,22 @@ export default function(state = initialState,action){
                
                 console.log(state.items.push(action.payload))
                 console.log(state.items)
-                const newitem=state.items
+                
                 return{
                     ...state,
                     postcreated:action.payload,
+                }
+            case NEW_COMMUNITY:
+                console.log('new COMMUNITY')
+                console.log(action.payload)
+               /*
+                console.log(state.items.push(action.payload))
+                console.log(state.items)
+                const newitem=state.items*/
+                state.communitycreated=1
+                return{
+                    ...state,
+                    communitycreated:action.payload,
                 }
 
         case DELETEPOST:

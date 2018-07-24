@@ -13,7 +13,7 @@ class Community extends Component{
       super(props);
       this.mybutton=this.mybutton.bind(this)
   }
-componentWillMount(){
+componentDidMount(){
       // console.log(this.props.postobj)
     //if(this.props.postobj.isAuthenticated){
         console.log('community entered...')
@@ -22,10 +22,12 @@ componentWillMount(){
 }
 
 // componentWillReceiveProps goes infinite loop..........fetch init get updated so, cwillrepr be called and infinite
-componentDidUpdate(){
+/*componentDidUpdate(prevProps){
+    if(this.props.comm!=prevProps.comm){
     console.log('console idi update in cmmlist')
     this.props.fetchCommunities(this.cookie.get('jwttoken').token);
-}
+    }
+}*/
 
 mybutton(e){
     console.log(this.props.name,e.target.id,e.target)

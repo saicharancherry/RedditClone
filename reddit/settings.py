@@ -28,7 +28,7 @@ SECRET_KEY = 'p=$#g^(t-bf(vw$!i&@4)gb=@l!+pza1@y8+r+3!+fi@bptug('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['redditmrnd.herokuapp.com','127.0.0.1:8000']
+ALLOWED_HOSTS = ['redditmrnd.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -56,6 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'reddit.urls'
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
@@ -82,15 +83,15 @@ WSGI_APPLICATION = 'reddit.wsgi.application'
 
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE':'django.db.backends.mysql',
-#         'NAME':'redditdb',
-#         'HOST': 'localhost',
-#         'USER':"root",
-#         'PASSWORD': ""
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'redditdb',
+        'HOST': 'localhost',
+        'USER':"root",
+        'PASSWORD': ""
+    }
+}
 
 
 # Password validation
@@ -125,16 +126,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+STATIC_URL = '/static/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, '/reddit-frontend'),
-os.path.join(BASE_DIR, '/reddit-frontend/src'),
-os.path.join(BASE_DIR, '/reddit-frontend/public'),
+  os.path.join(BASE_DIR, 'assets'),
+# os.path.join(BASE_DIR, '/reddit-frontend/src'),
+# os.path.join(BASE_DIR, '/reddit-frontend/public'),
 ]
 
 WEBPACK_LOADER = {

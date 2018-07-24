@@ -24,6 +24,7 @@ class Postform extends Component{
              
              }
     }
+    
     componentDidMount(){
         this.cookies=new Cookies();
 
@@ -67,7 +68,8 @@ render(){
     return(
         
         <div>
-        <select value={this.state.optionvalue} onChange={this.handleChange.bind(this)}>
+        <div><b>select community</b></div>  :   <select value={this.state.optionvalue} onChange={this.handleChange.bind(this)}>
+        <option value="select community" name="community" ></option>
              {this.state.data && this.state.data.map((item)=>(
                  <option value={item.rid__rfield}>{item.rid__rfield}</option>
              ))}
@@ -100,6 +102,10 @@ const mapStateToProps = state =>({
 
 });
 export default connect(mapStateToProps,{createPost})(Postform);
+
+
+//createComm
+
 
 /*
 import React,{ Component } from 'react';

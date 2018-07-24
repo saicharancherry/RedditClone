@@ -19,7 +19,7 @@ class Posts extends Component{
     }
 componentDidMount(){
        console.log(this.props.postobj)
-    if(!this.props.postobj.isAuthenticated){
+    if(!this.props.auth){
         console.log('entered...')
         fetch("https://newsapi.org/v2/top-headlines?country=IN&category=science&apiKey=cd5254ebf7174e8292375b098481ad3a",{
             method:'GET',
@@ -48,13 +48,13 @@ componentWillMount(){
 componentDidUpdate(prevProps){
     console.log('didupdate................')
         console.log(this.props.username,prevProps.username)
-        //if(this.props.postobj.username !=prevProps.username){
+        if(this.props.comm !=prevProps.comm){
             if(new Cookies().get('jwttoken')){
             console.log("componentdid=mobt fetcommmm")
-         this.props.fetchPosts(this.props.postobj.username,new Cookies().get('jwttoken').token);
+         this.props.fetchPosts(this.props.username,new Cookies().get('jwttoken').token);
          console.log("componentdid=mobt fetcommmm")
          //this.props.fetchCommunities(this.cookie.get('jwttoken').token);
-        // }
+        }
             }
 }
 handleUpvote(e){
@@ -97,7 +97,7 @@ render=()=>{
     )
 
     const notloggedin=(
-        <div>
+        <div style={{backgroundColor:''}}>
             <div>
         <h2>charan Posts</h2>
         <div>
@@ -106,8 +106,8 @@ render=()=>{
             <div class="leftcolumn">
             {this.state.data.articles && this.state.data.articles.map((item)=>(
                 <div>
-                <div class="card mb-3">
-                <img class="card-img-top" src={item.urlToImage} alt="Card image cap"/>
+                <div class="card mb-3" style={{left:'20%'}}>
+                <img class="card-img-top" style={{height:'450px'}} src={item.urlToImage} alt="Card image cap"/>
                 <div class="card-body">
                   <h5 class="card-title">{item.author}</h5>
                   <p class="card-text">{item.description}</p>
@@ -116,6 +116,10 @@ render=()=>{
               </div>
               </div>
               ))}
+              <div class="card mb-3" style={{left:'20%'}}>
+              <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+</div></div>
             </div>
             
           </div>
@@ -146,7 +150,7 @@ render=()=>{
                 <div class="fakeimg" style={{height:'50px'}}>Image</div>
                 <p>{item.pdata}</p>
                 <div class="s1r3zmnv-6 gMdMBr"><div><div class="_3-miAEojrCvx_4FQ8x3P-s">
-                <a rel="nofollow" data-click-id="comments" data-test-id="comments-page-link-num-comments" class="_1UoeAeSRhOKSNdY_h3iS1O _1Hw7tY9pMr-T1F4P1C-xNU" href="/r/news/comments/8v7mu3/recreational_marijuana_now_legal_in_vermont/"><div>
+                <a rel="nofollow" data-click-id="comments" data-test-id="comments-page-link-num-comments" class="_1UoeAeSRhOKSNdY_h3iS1O _1Hw7tY9pMr-T1F4P1C-xNU" href=""><div>
             <i class="icon icon-comment _3ch9jJ0painNf41PmU4F9i _3DVrpDrMM9NLT6TlsTUMxC"></i>
             <span class="FHCV02u6Cp2zYL0fhQPsO">comments</span>
             </div></a><div class="_3XELg38mTJetc-xIUOKrMy" id="t3_8v7mu3-share-menu">
@@ -164,15 +168,19 @@ render=()=>{
             </div>
             <div class="rightcolumn">
               <div class="card">
-                <h2>About Me</h2>
+                <b>about </b><h2>{ this.props.username}</h2>
                 <div class="fakeimg" style={{height:'100px'}}>Image</div>
-                    <button class="btn btn-primary"><Link to={'/reddit/'+this.props.username+'/submit'}>post </Link></button>                 
+                    <button class="btn btn-dark"><Link to={'/reddit/'+this.props.username+'/submit'}>post </Link></button>                 
                         <p>Inspire with your post</p>
                     <div><p>
                         </p></div>
                  
               </div>
-              {this.props.postobj.isAuthenticated?usercomm:guestcomm}
+              <div class="card">
+              <button class="btn btn-dark"><Link to={'/reddit/'+this.props.username+'/createcommunity'}>Create Community </Link></button>                 
+                 
+              </div>
+              {this.props.auth?usercomm:guestcomm}
               <div class="card">
                 <h3>Follow Me</h3>
                 <p>Some text..</p>
@@ -192,7 +200,7 @@ render=()=>{
     //console.log(this.props.privateposts.articles)
     return(
         <div>
-        { this.props.postobj.isAuthenticated ? userloggedin : notloggedin }
+        { this.props.auth ? userloggedin : notloggedin }
         </div>
 
     );
@@ -203,16 +211,16 @@ Posts.propTypes={
     fetchPosts: propTypes.func.isRequired,
     posts: propTypes.array.isRequired,
     username:propTypes.string,
-    postobj:propTypes.object,
-    communities:propTypes.object,
+    
+    
     
 }
 
 const mapStateToProps = state =>({
     posts: state.posts.items,
     username:state.posts.username,
-    postobj:state.posts,
-    communities:state.communities,
+    auth:state.posts.isAuthenticated,
+    comm:state.posts.comminities,
     
 
 });

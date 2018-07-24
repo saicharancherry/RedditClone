@@ -40,6 +40,7 @@ render(){
     )
     console.log('rendering header enterd.......')
     return(
+        
         <header class="_2GyPfdsi-MbQFyHRECo9GO s59a93p-0 irFqwH v103u5-0 iVZcZk" data-redditstyle="true">
         <div class="_3dnbqz69WJTFCss8wl7Wlk"><a aria-label="Home" class="_30BbATRhFv3V83DHNDjJAO" href="/">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="_1O4jTk-dZ-VIxsCuYB6OR8"><g>

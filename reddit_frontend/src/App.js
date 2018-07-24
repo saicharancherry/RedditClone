@@ -11,6 +11,7 @@ import Redditheader from './components/AuthHeader'
 import Login from './components/login'
 import Posts from './components/post'
 import Postform from './components/postform'
+import Createcommunity from './components/createCommunity'
 import Logout from './components/logout'
 import Signup from './components/signup'
 
@@ -30,8 +31,8 @@ class App extends Component {
          <Route path="/user/login/" component={Login}/>
          <Route path="/user/signup/" component={Signup}/>
          <Route path="/user/logout/" component={Logout}/>
-         <Route  path='/reddit/:username/submit/' component={Postform}/>
-         
+         <Route  path='/reddit/:username/submit/' component={Postform}/> 
+         <Route  path='/reddit/:username/createcommunity/' component={Createcommunity}/>
          <Route component={Posts}/>
          
          

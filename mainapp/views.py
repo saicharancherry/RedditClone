@@ -197,3 +197,11 @@ class Create_post(APIView):
         #         return JsonResponse(serializer.error_messages,status=400)
         # except Exception as e:
         #     return HttpResponse(status=404)
+
+
+class Create_community(APIView):
+    permission_classes = (IsAuthenticated,)
+    def post(self,request,*args,**kwargs):
+        cl=Community_list.objects.create(rname=request.data['username'],rfield=request.data['postdata'])
+        cl.save()
+        return HttpResponse({'status':'post submited'},status=200)
