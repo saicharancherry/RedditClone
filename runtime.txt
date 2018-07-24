@@ -1,5 +1,2 @@
-<<<<<<< HEAD
 python-3.6.6
-=======
-python-3.6.6
->>>>>>> d216f0b2d3bff5f1f4fcec4f2a378521d1fd2716
+
