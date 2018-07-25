@@ -28,7 +28,7 @@ class Postform extends Component{
     componentDidMount(){
         this.cookies=new Cookies();
 
-        fetch("http://127.0.0.1:8000/communitylist/" + this.props.name+"/",{
+        fetch("https://redditmrnd.herokuapp.com/communitylist/" + this.props.name+"/",{
                 method:'GET',
                 headers:new Headers({
                     'Authorization':'JWT '+this.cookies.get('jwttoken').token,
