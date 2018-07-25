@@ -3,7 +3,7 @@ import {FETCH_POSTS,NEW_POSTS,FETCH_COMMINITIES,DELETEPOST,FETCHPRIVATE_POSTS, S
 export const fetchPosts=(username,token)=>dispatch=>{
     console.log('post fetching......\nusername: token:')
     console.log(username,token)
-    fetch("https://mrndreddit.herokuapp.com/posts/" + username+"/",{
+    fetch("http://127.0.0.1:8000/posts/" + username+"/",{
             method:'GET',
             headers:new Headers({
                 'Authorization':'JWT '+token,
@@ -39,7 +39,7 @@ export const fetchRealtimePosts=()=>dispatch=>{
 
 export const fetchCommunities=(token)=>dispatch=>{
     console.log('fetccching communities')
-    fetch("https://mrndreddit.herokuapp.com/communities/",{
+    fetch("http://127.0.0.1:8000/communities/",{
             method:'GET',
             headers:new Headers({
                 'Authorization':'JWT '+token,
@@ -60,7 +60,7 @@ export const fetchCommunities=(token)=>dispatch=>{
 export const createPost=(postData,token)=>dispatch=>{
     console.log('communitiesfetching......')
     console.log(this.state,this.props)
-    fetch("https://mrndreddit.herokuapp.com/createpost/",{
+    fetch("http://127.0.0.1:8000/createpost/",{
         method:'POST',
         body:JSON.stringify(postData),
         credentials:'same-origin',
@@ -81,7 +81,7 @@ export const createPost=(postData,token)=>dispatch=>{
 export const createComm=(postData,token)=>dispatch=>{
     console.log('communitiesfetching......')
     console.log(this.state,this.props)
-    fetch("https://mrndreddit.herokuapp.com/createcommunity/",{
+    fetch("http://127.0.0.1:8000/createcommunity/",{
         method:'POST',
         body:JSON.stringify(postData),
         credentials:'same-origin',
@@ -104,7 +104,7 @@ export const createComm=(postData,token)=>dispatch=>{
 
 export const subscribeCommunity=(value,name,token)=>dispatch=>{
     console.log('communitiesfetching......')
-    fetch("hhttps://mrndreddit.herokuapp.com/subscribecommunity/",{
+    fetch("http://127.0.0.1:8000/subscribecommunity/",{
         method:'POST',
         body:JSON.stringify({rid:value,username:name}),
         credentials:'same-origin',
@@ -125,7 +125,7 @@ export const subscribeCommunity=(value,name,token)=>dispatch=>{
 } 
 export const DeletePosts=(id,token)=>dispatch=>{
     console.log('dleteing post......')
-    fetch("https://mrndreddit.herokuapp.com/deletepost/",{
+    fetch("http://127.0.0.1:8000/deletepost/",{
         method:'DELETE',
         body:JSON.stringify({pid:id}),
         credentials:'same-origin',

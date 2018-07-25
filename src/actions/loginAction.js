@@ -4,7 +4,7 @@ const cookies=new Cookies();
 
 export const LoginAction=(UserCredentials)=>dispatch=>{
     console.log('loginAcition fetching......');
-    fetch("https://mrndreddit.herokuapp.com//login/auth-jwt/",
+    fetch("https://mrndreddit.herokuapp.com/login/auth-jwt/",
     {
         method:'POST',
         body:JSON.stringify(UserCredentials),
@@ -37,7 +37,7 @@ export const LogoutAction=()=>dispatch=>{
 
 export const SignupAction=(UserCredentials)=>dispatch=>{
     console.log('signupAcition fetching......');
-    fetch("https://mrndreddit.herokuapp.com//u/signup/",
+    fetch("https://mrndreddit.herokuapp.com/u/signup/",
     {
         method:'POST',
         body:JSON.stringify(UserCredentials),
