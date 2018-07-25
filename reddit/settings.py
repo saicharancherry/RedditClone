@@ -27,7 +27,7 @@ db_from_env=dj_database_url.config()
 SECRET_KEY = 'p=$#g^(t-bf(vw$!i&@4)gb=@l!+pza1@y8+r+3!+fi@bptug('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['mrndreddit.herokuapp.com','127.0.0.1',]
 
