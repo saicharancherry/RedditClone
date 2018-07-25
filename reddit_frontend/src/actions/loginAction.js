@@ -4,7 +4,7 @@ const cookies=new Cookies();
 
 export const LoginAction=(UserCredentials)=>dispatch=>{
     console.log('loginAcition fetching......');
-    fetch("http://127.0.0.1:8000/login/auth-jwt/",
+    fetch("https://mrndreddit.herokuapp.com/login/auth-jwt/",
     {
         method:'POST',
         body:JSON.stringify(UserCredentials),
