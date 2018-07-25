@@ -39,7 +39,7 @@ export const fetchRealtimePosts=()=>dispatch=>{
 
 export const fetchCommunities=(token)=>dispatch=>{
     console.log('fetccching communities')
-    fetch("hhttps://redditmrnd.herokuapp.com/communities/",{
+    fetch("https://redditmrnd.herokuapp.com/communities/",{
             method:'GET',
             headers:new Headers({
                 'Authorization':'JWT '+token,
