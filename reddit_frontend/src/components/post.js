@@ -160,12 +160,12 @@ render=()=>{
                           |</li>
                           <li>
                           <button type="button" class="btn btn-primary btn-sm">
-  <h6>upvote <span class="badge badge-light">4</span></h6>
+  upvote <span class="badge badge-light">4</span>
 </button>
                               </li>
                               <li>
                           <button type="button" class="btn btn-primary btn-sm">
-  <h6>downvote <span class="badge badge-light">0</span></h6>
+  downvote <span class="badge badge-light">0</span>
             </button>
                               |</li>
                       <li>
