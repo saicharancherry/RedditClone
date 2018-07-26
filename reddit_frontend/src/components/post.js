@@ -142,7 +142,7 @@ render=()=>{
                 <div class="well">
                 <div class="media">
                     <a class="pull-left" href="#">
-                      <img class="media-object" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKA_GXdJDIjAc8LEPuCwoLy56FY6pwqDWN6WJlCJNdxrPHKISV"/>
+                      <img class="media-object" src="http://placekitten.com/150/150"/>
                     </a>
                     <div class="media-body">
                     <button><div><i class="icon icon-downvote ZyxIIl4FP5gHGrJDzNpUC"></i></div></button>
@@ -222,6 +222,7 @@ render=()=>{
     console.log(this.props.privateposts)
     console.log(this.state.data.articles)
     //console.log(this.props.privateposts.articles)
+    
     return(
         <div>
         { this.props.auth ? userloggedin : notloggedin }
