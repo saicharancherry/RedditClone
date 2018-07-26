@@ -141,7 +141,7 @@ render=()=>{
                 <div class="well">
                 <div class="media">
                     <a class="pull-left" href="#">
-                      <img class="media-object" src="http://placekitten.com/150/150"/>
+                      <img class="media-object" src=""/>
                     </a>
                     <div class="media-body">
                     <button><div><i class="icon icon-downvote ZyxIIl4FP5gHGrJDzNpUC"></i></div></button>
@@ -157,7 +157,17 @@ render=()=>{
                       <li>
                       {this.props.username==item.uid__username ?<button class="s1d0qa2-9 eeGJEy s12jqx1h-1 imtPHR" onClick={this.handleDelete.bind(this)} aria-expanded="false" aria-haspopup="true" aria-label="more options" id={item.pid}>
     <i class="icon icon-menu s12jqx1h-2 cIafAH" id={item.pid}>delete</i></button>:<div/> }
-                          </li>
+                          |</li>
+                          <li>
+                          <button type="button" class="btn btn-secondary">
+  <h6>upvote <span class="badge badge-light">4</span></h6>
+</button>
+                              </li>
+                              <li>
+                          <button type="button" class="btn btn-secondary">
+  <h6>downvote <span class="badge badge-light">0</span></h6>
+            </button>
+                              |</li>
                       <li>
                          <span class="glyphicon glyphicon-star"></span>
                                   <span class="glyphicon glyphicon-star"></span>
