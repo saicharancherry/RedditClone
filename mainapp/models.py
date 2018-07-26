@@ -24,7 +24,7 @@ def get_photo_path():
 class Post(models.Model):
     pid=models.AutoField(primary_key=True)
     uid=models.ForeignKey(User,on_delete=models.CASCADE)
-    pdata=models.CharField(max_length=300,null=True)
+    pdata=models.CharField(max_length=3000,null=True)
     pcid=models.ForeignKey(User_registered_comunities,null=True,on_delete=models.SET_NULL)
     community=models.ForeignKey(Community_list,on_delete=models.CASCADE)
     ptime=models.DateTimeField(auto_now=True)

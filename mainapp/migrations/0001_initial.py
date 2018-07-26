@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
             name='Post',
             fields=[
                 ('pid', models.AutoField(primary_key=True, serialize=False)),
-                ('pdata', models.CharField(max_length=300, null=True)),
+                ('pdata', models.CharField(max_length=3000, null=True)),
                 ('ptime', models.DateTimeField(auto_now=True)),
                 ('pimage', models.ImageField(blank=True, null=True, upload_to=mainapp.models.get_photo_path)),
                 ('upvote', models.IntegerField(default=0)),

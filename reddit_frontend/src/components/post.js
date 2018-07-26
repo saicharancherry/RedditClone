@@ -138,32 +138,43 @@ render=()=>{
           <div class="row">
             <div class="leftcolumn">
             {this.props.auth && this.props.posts && this.props.posts.map((item)=>(
-              <div class="card">
-              <div>
-            <button><div><i class="icon icon-downvote ZyxIIl4FP5gHGrJDzNpUC"></i></div></button>
+                <div class="well">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object" src="http://placekitten.com/150/150"/>
+                    </a>
+                    <div class="media-body">
+                    <button><div><i class="icon icon-downvote ZyxIIl4FP5gHGrJDzNpUC"></i></div></button>
             <button onClick={this.handleUpvote.bind(this)}><div><i class="icon icon-upvote _2Jxk822qXs4DaXwsN7yyHA" onClick={this.handleUpvote.bind(this)}></i></div></button>
-                </div>
-            <div  style={{color:"#1c1c1c"}}>0</div>
-                <p>user:{item.uid__username}</p>
-                <h5>{item.community__rfield}</h5>
-                <h5>{item.ptime}</h5>
-                <div class="fakeimg" style={{height:'50px'}}>Image</div>
-                <p>{item.pdata}</p>
-                <div class="s1r3zmnv-6 gMdMBr"><div><div class="_3-miAEojrCvx_4FQ8x3P-s">
-                <div rel="nofollow" data-click-id="comments" data-test-id="comments-page-link-num-comments" class="_1UoeAeSRhOKSNdY_h3iS1O _1Hw7tY9pMr-T1F4P1C-xNU"><div>
-            <i class="icon icon-comment _3ch9jJ0painNf41PmU4F9i _3DVrpDrMM9NLT6TlsTUMxC"></i>
-            <span class="FHCV02u6Cp2zYL0fhQPsO">comments</span>
-            </div></div><div class="_3XELg38mTJetc-xIUOKrMy" id="t3_8v7mu3-share-menu">
-            <button class="s1qn1sr9-0 cqRbIO" data-click-id="share"><i class="icon icon-share xwmljjCrovDE5C9MasZja _1GQDWqbF-wkYWbrpmOvjqJ"></i>
-            <span class="_6_44iTtZoeY6_XChKt5b0">share</span></button></div><div class="s7vvtc7-0 kJKGoj"></div><div>
-                {this.props.username==item.uid__username ?<button class="s1d0qa2-9 eeGJEy s12jqx1h-1 imtPHR" onClick={this.handleDelete.bind(this)} aria-expanded="false" aria-haspopup="true" aria-label="more options" id={item.pid}>
+                      <h4 class="media-heading">{item.community__rfield}</h4>
+                    <p class="text-right">By {item.uid__username}</p>
+                    <p>L{item.pdata}</p>
+                    <ul class="list-inline list-unstyled">
+                        <li><span><i class="glyphicon glyphicon-calendar"></i> {item.ptime} </span></li>
+                      <li>|</li>
+                      <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
+                      <li>|</li>
+                      <li>
+                      {this.props.username==item.uid__username ?<button class="s1d0qa2-9 eeGJEy s12jqx1h-1 imtPHR" onClick={this.handleDelete.bind(this)} aria-expanded="false" aria-haspopup="true" aria-label="more options" id={item.pid}>
     <i class="icon icon-menu s12jqx1h-2 cIafAH" id={item.pid}>delete</i></button>:<div/> }
-               
-                
-                </div>
-        <div class="_21pmAV9gWG6F_UKVe7YIE0"></div>
-        <span class="_2cxR1YcQUgsimt7WSmt8FI"></span></div></div></div>
+                          </li>
+                      <li>
+                         <span class="glyphicon glyphicon-star"></span>
+                                  <span class="glyphicon glyphicon-star"></span>
+                                  <span class="glyphicon glyphicon-star"></span>
+                                  <span class="glyphicon glyphicon-star"></span>
+                                  <span class="glyphicon glyphicon-star-empty"></span>
+                      </li>
+                      <li>|</li>
+                      <li>
+                        <span><i class="fa fa-facebook-square"></i></span>
+                        <span><i class="fa fa-twitter-square"></i></span>
+                        <span><i class="fa fa-google-plus-square"></i></span>
+                      </li>
+                      </ul>
+                 </div>
               </div>
+            </div>
               ))}
             </div>
             <div class="rightcolumn">
@@ -219,8 +230,7 @@ Posts.propTypes={
     fetchPosts: propTypes.func.isRequired,
     posts: propTypes.array.isRequired,
     username:propTypes.string,
-    
-    
+  
     
 }
 
@@ -245,3 +255,34 @@ export default connect(mapStateToProps,{ fetchPosts,DeletePosts })(Posts);
                 </div>
 */
 //<Link to='submit/'>post</Link>
+
+
+/*
+
+<div class="card">
+              <div>
+            <button><div><i class="icon icon-downvote ZyxIIl4FP5gHGrJDzNpUC"></i></div></button>
+            <button onClick={this.handleUpvote.bind(this)}><div><i class="icon icon-upvote _2Jxk822qXs4DaXwsN7yyHA" onClick={this.handleUpvote.bind(this)}></i></div></button>
+                </div>
+            <div  style={{color:"#1c1c1c"}}>0</div>
+                <p>user:{item.uid__username}</p>
+                <h5>{item.community__rfield}</h5>
+                <h5>{item.ptime}</h5>
+                <div class="fakeimg" style={{height:'50px'}}>Image</div>
+                <p>{item.pdata}</p>
+                <div class="s1r3zmnv-6 gMdMBr"><div><div class="_3-miAEojrCvx_4FQ8x3P-s">
+                <div rel="nofollow" data-click-id="comments" data-test-id="comments-page-link-num-comments" class="_1UoeAeSRhOKSNdY_h3iS1O _1Hw7tY9pMr-T1F4P1C-xNU"><div>
+            <i class="icon icon-comment _3ch9jJ0painNf41PmU4F9i _3DVrpDrMM9NLT6TlsTUMxC"></i>
+            <span class="FHCV02u6Cp2zYL0fhQPsO">comments</span>
+            </div></div><div class="_3XELg38mTJetc-xIUOKrMy" id="t3_8v7mu3-share-menu">
+            <button class="s1qn1sr9-0 cqRbIO" data-click-id="share"><i class="icon icon-share xwmljjCrovDE5C9MasZja _1GQDWqbF-wkYWbrpmOvjqJ"></i>
+            <span class="_6_44iTtZoeY6_XChKt5b0">share</span></button></div><div class="s7vvtc7-0 kJKGoj"></div><div>
+                {this.props.username==item.uid__username ?<button class="s1d0qa2-9 eeGJEy s12jqx1h-1 imtPHR" onClick={this.handleDelete.bind(this)} aria-expanded="false" aria-haspopup="true" aria-label="more options" id={item.pid}>
+    <i class="icon icon-menu s12jqx1h-2 cIafAH" id={item.pid}>delete</i></button>:<div/> }
+               
+                
+                </div>
+        <div class="_21pmAV9gWG6F_UKVe7YIE0"></div>
+        <span class="_2cxR1YcQUgsimt7WSmt8FI"></span></div></div></div>
+              </div>
+*/
