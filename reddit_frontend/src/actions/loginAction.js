@@ -41,11 +41,11 @@ export const SignupAction=(UserCredentials)=>dispatch=>{
     {
         method:'POST',
         body:JSON.stringify(UserCredentials),
-        credentials:'same-origin',
+        credentials:'include',
         headers:{
             'content-type':'application/json'
         },
-        
+        mode:'cors',
     }
 ).then(function(response){
     return response.json();

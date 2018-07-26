@@ -160,16 +160,16 @@ render=()=>{
     <i class="icon icon-menu s12jqx1h-2 cIafAH" id={item.pid}>delete</i></button>:<div/> }
                           |</li>
                           <li>
-                          <div class="container">
+                          
                           <button type="button" class="btn btn-primary btn-sm">
   upvote <span class="badge badge-light">4</span>
-</button></div>
+</button>
                               </li>
                               <li>
-                              <div class="container">
+                              
                           <button type="button" class="btn btn-primary btn-sm">
   downvote <span class="badge badge-light">0</span>
-            </button></div>
+            </button>
                               |</li>
                       <li>
                          <span class="glyphicon glyphicon-star"></span>
@@ -222,7 +222,7 @@ render=()=>{
     console.log(this.props.privateposts)
     console.log(this.state.data.articles)
     //console.log(this.props.privateposts.articles)
-    
+
     return(
         <div>
         { this.props.auth ? userloggedin : notloggedin }
