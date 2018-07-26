@@ -48,7 +48,7 @@ componentWillMount(){
 componentDidUpdate(prevProps){
     console.log('i entered')
         console.log(this.props.username,prevProps.username)
-        if(this.props.comm !=prevProps.comm){
+        if((this.props.comm !=prevProps.comm)){
             if(new Cookies().get('jwttoken')){
             console.log("componentdid=mobt fetcommmm")
          this.props.fetchPosts(this.props.username,new Cookies().get('jwttoken').token);
@@ -137,11 +137,12 @@ render=()=>{
         <div>
           <div class="row">
             <div class="leftcolumn">
+
             {this.props.auth && this.props.posts && this.props.posts.map((item)=>(
                 <div class="well">
                 <div class="media">
                     <a class="pull-left" href="#">
-                      <img class="media-object" src="http://placekitten.com/150/150"/>
+                      <img class="media-object" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKA_GXdJDIjAc8LEPuCwoLy56FY6pwqDWN6WJlCJNdxrPHKISV"/>
                     </a>
                     <div class="media-body">
                     <button><div><i class="icon icon-downvote ZyxIIl4FP5gHGrJDzNpUC"></i></div></button>
@@ -159,14 +160,16 @@ render=()=>{
     <i class="icon icon-menu s12jqx1h-2 cIafAH" id={item.pid}>delete</i></button>:<div/> }
                           |</li>
                           <li>
+                          <div class="container">
                           <button type="button" class="btn btn-primary btn-sm">
   upvote <span class="badge badge-light">4</span>
-</button>
+</button></div>
                               </li>
                               <li>
+                              <div class="container">
                           <button type="button" class="btn btn-primary btn-sm">
   downvote <span class="badge badge-light">0</span>
-            </button>
+            </button></div>
                               |</li>
                       <li>
                          <span class="glyphicon glyphicon-star"></span>
