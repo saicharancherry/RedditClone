@@ -24,24 +24,66 @@ mybutton(e)
 render(){
     //console.log(this.props.history.push())
     const userLinks=(
-        <div>
-            <button class="btn btn-outline-secondary"><Link to='/user/logout/'>logout</Link></button>
-      </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><Link to='/user/logout/'><span class="glyphicon glyphicon-log-in"></span> logout</Link></li>
+        </ul>
     )
 
     const guestLinks=(
-        
-        <div>
-            
-            <button class="btn btn-outline-primary"><Link to='/user/login/'>login</Link></button>
-            <button class="btn btn-outline-secondary"><Link to='/user/signup/'>signup</Link></button>
 
-            </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><Link to='/user/login/'><span class="glyphicon glyphicon-log-in"></span> Login</Link></li>
+            <li><Link to='/user/signup/'><span class="glyphicon glyphicon-user"></span> Sign Up</Link></li>
+        </ul>
     )
     console.log('rendering header enterd.......')
     return(
-        
-        <header class="_2GyPfdsi-MbQFyHRECo9GO s59a93p-0 irFqwH v103u5-0 iVZcZk" data-redditstyle="true">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Reddit</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <form class="navbar-form navbar-right" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search"/>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    </ul>
+    {this.props.auth.isAuthenticated?userLinks:guestLinks}
+  </div>
+</nav>
+
+    );
+}//{this.props.auth.isAuthenticated?userLinks:guestLinks}
+}
+Redditheader.PropTypes={
+    auth:PropTypes.object
+}
+
+const mapStateToProps= state =>({
+    auth:state.posts,
+});
+export default connect(mapStateToProps,{})(Redditheader);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+<header class="_2GyPfdsi-MbQFyHRECo9GO s59a93p-0 irFqwH v103u5-0 iVZcZk" data-redditstyle="true">
         <div class="_3dnbqz69WJTFCss8wl7Wlk"><a aria-label="Home" class="_30BbATRhFv3V83DHNDjJAO" href="/">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="_1O4jTk-dZ-VIxsCuYB6OR8"><g>
             <circle fill="#FF4500" cx="10" cy="10" r="10"></circle>
@@ -68,21 +110,11 @@ render(){
                     <path fill="inherit" d="M1.25,17.5 L1.25,7.5 L6.25,7.5 L6.25,17.5 L1.25,17.5 Z M12.49995,17.5001 L7.49995,17.5001 L7.49995,5.0001 L4.99995,5.0001 L9.99995,0.0006 L14.99995,5.0001 L12.49995,5.0001 L12.49995,17.5001 Z M13.75,17.5 L13.75,12.5 L18.75,12.5 L18.75,17.5 L13.75,17.5 Z"></path></g></svg></a>
                     <a class="_3dZnYgFFpifT-M_Vs2FAq6" id="header-quicklinks-oc" href="/original">
                     <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="inherit" d="M16.9998,2.9995 C18.1028,2.9995 18.9998,3.8975 18.9998,4.9995 L18.9998,14.9995 C18.9998,16.1025 18.1028,16.9995 16.9998,16.9995 L2.9998,16.9995 C1.8978,16.9995 0.9998,16.1025 0.9998,14.9995 L0.9998,4.9995 C0.9998,3.8975 1.8978,2.9995 2.9998,2.9995 L16.9998,2.9995 Z M13.9648,13.3525 C15.2718,13.3525 16.3188,12.6745 16.8278,11.5665 L15.1818,10.9775 C14.9318,11.4765 14.4528,11.8165 13.8338,11.8165 C13.0158,11.8165 12.3478,11.0575 12.3478,9.9995 C12.3478,8.9525 13.0058,8.1735 13.8438,8.1735 C14.4528,8.1735 14.9218,8.5025 15.1308,8.9615 L16.6968,8.2435 C16.1988,7.2755 15.2108,6.6365 13.9648,6.6365 C12.0588,6.6365 10.5118,8.1335 10.5118,9.9995 C10.5118,11.8755 12.0588,13.3525 13.9648,13.3525 Z M6.6248,13.3635 C8.5408,13.3635 10.0878,11.8755 10.0878,9.9995 C10.0878,8.1335 8.5408,6.6365 6.6248,6.6365 C4.7188,6.6365 3.1718,8.1335 3.1718,9.9995 C3.1718,11.8755 4.7188,13.3635 6.6248,13.3635 Z M6.625,8.1641 C7.562,8.1641 8.262,8.9421 8.262,10.0001 C8.262,11.0481 7.562,11.8361 6.625,11.8361 C5.697,11.8361 4.998,11.0481 4.998,10.0001 C4.998,8.9421 5.697,8.1641 6.625,8.1641 Z"></path></svg></a></div></div><div class="_19oWd7e3z7-ztUGzdIoCR7"><div class="_1JBkpB_FOZMZ7IPr3FyNfH">
-                    {this.props.auth.isAuthenticated?userLinks:guestLinks}
+                    
                     </div><div class="U3FRqDA_Qhr4icbaNXSuf s1cu8rnh-0 kCxZdn">
                     <div class="s1waoko7-5 fExxVx"></div><div class="header-user-dropdown"><button class="s1waoko7-6 guxYJQ b1zwxr-0 hxpTao" aria-expanded="false" aria-haspopup="true" id="USER_DROPDOWN_ID"><div class="s19bur1g-0 dvjdUr">
                     <svg class="s19bur1g-8 vqQey" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g>
                         <path fill="inherit" d="M14.1711599,9.3535 L9.99925636,13.529 L5.82735283,9.3535 C5.51262415,9.0385 5.73543207,8.5 6.18054835,8.5 L13.8179644,8.5 C14.2630807,8.5 14.4858886,9.0385 14.1711599,9.3535"></path></g></svg></div><span class="s1dqr9jy-0 imyGpC"></span></button>
        
         </div></div></div></div></header>
-    );
-}
-}
-Redditheader.PropTypes={
-    auth:PropTypes.object
-}
-
-const mapStateToProps= state =>({
-    auth:state.posts,
-});
-export default connect(mapStateToProps,{})(Redditheader);
+*/
