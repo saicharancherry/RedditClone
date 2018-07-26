@@ -148,7 +148,7 @@ render=()=>{
             <button onClick={this.handleUpvote.bind(this)}><div><i class="icon icon-upvote _2Jxk822qXs4DaXwsN7yyHA" onClick={this.handleUpvote.bind(this)}></i></div></button>
                       <h4 class="media-heading">{item.community__rfield}</h4>
                     <p class="text-right">By {item.uid__username}</p>
-                    <p>L{item.pdata}</p>
+                    <p>{item.pdata}</p>
                     <ul class="list-inline list-unstyled">
                         <li><span><i class="glyphicon glyphicon-calendar"></i> {item.ptime} </span></li>
                       <li>|</li>
@@ -212,14 +212,62 @@ render=()=>{
     return(
         <div>
         { this.props.auth ? userloggedin : notloggedin }
-        <footer class="btn-primary  disabled" style={{align:"center"}}>
-        <div class="footer-copyright text-center py-3">© 2018 Copyright : charan</div>
-        <a href="https://github.com/saicharancherry" target="_blank">
-        <ion-icon name="logo-github" role="img" class="hydrated" aria-label="logo github"></ion-icon>
-        </a>&nbsp;&nbsp;<a href="https://www.facebook.com/saicharan" target="_blank"><ion-icon name="logo-facebook"style={{fontsize: '30px'}} role="img" class="hydrated" aria-label="logo facebook"></ion-icon></a>&nbsp;&nbsp;
-        <a href="https://www.linkedin.com/in/" target="_blank"><ion-icon name="logo-linkedin" style={{fontsize: '30px'}} role="img" class="hydrated" aria-label="logo linkedin"></ion-icon></a>&nbsp;&nbsp;<a href="" target="_blank">
-        <ion-icon name="logo-twitter" style={{fontsize: '30px'}} role="img" class="hydrated" aria-label="logo twitter"></ion-icon></a>&nbsp;&nbsp;<a href="https://www.instagram.com/pranadeepr/?hl=en" target="_blank">
-        <ion-icon name="logo-instagram"  role="img" class="hydrated" aria-label="logo instagram"></ion-icon></a>&nbsp;&nbsp;</footer>
+        <div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3  col-md-4 col-sm-4">
+              <div class="footer_dv">
+                  <h4>About us</h4>
+                  
+                  <img class="img-responsive" src="http://via.placeholder.com/250x150" alt="about"/>
+                  <p></p>
+                  <p>reddit </p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-4">
+              <div class="footer_dv">
+                  <h4>Quick Link</h4>
+                  <div class="line-dash"></div>
+                  <ul>
+                      <li><a class="a-font" href="#">Home</a></li>
+                      <li><a class="a-font" href="#">About</a></li>
+                      <li><a class="a-font" href="https://www.facebook.com/profile.php?id=100008850547118">facebook</a></li>
+                      <li><a class="a-font" href="#">Blog</a></li>
+                      <li><a class="a-font" href="#">Police Privacy</a></li>
+                  </ul>
+              </div>
+          </div>
+         
+
+          <div class="col-lg-3 col-md-4 col-sm-4">
+              <div class="footer_dv">
+                  <h4>mrnd</h4>
+                  <div class="line-dash"></div>
+                  <ul>
+                    
+                  </ul>
+              </div>
+          </div>
+
+        </div>
+    </div>
+</div>
+<footer class="py-5 bg-dark">
+  <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                  <p class="pull-left"><a href="http://lacodeid.com/" style={{textDecoration: 'none'}}>© 2017 mrndreddit</a></p>
+                </div>
+                <div class="col-md-8">
+                    <ul class="list-inline navbar-right">
+                        <li><a href="#">HOME</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
         </div>
 
     );
