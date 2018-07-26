@@ -141,7 +141,7 @@ render=()=>{
                 <div class="well">
                 <div class="media">
                     <a class="pull-left" href="#">
-                      <img class="media-object" src=""/>
+                      <img class="media-object" src="http://placekitten.com/150/150"/>
                     </a>
                     <div class="media-body">
                     <button><div><i class="icon icon-downvote ZyxIIl4FP5gHGrJDzNpUC"></i></div></button>
@@ -159,12 +159,12 @@ render=()=>{
     <i class="icon icon-menu s12jqx1h-2 cIafAH" id={item.pid}>delete</i></button>:<div/> }
                           |</li>
                           <li>
-                          <button type="button" class="btn btn-secondary">
+                          <button type="button" class="btn btn-primary btn-sm">
   <h6>upvote <span class="badge badge-light">4</span></h6>
 </button>
                               </li>
                               <li>
-                          <button type="button" class="btn btn-secondary">
+                          <button type="button" class="btn btn-primary btn-sm">
   <h6>downvote <span class="badge badge-light">0</span></h6>
             </button>
                               |</li>
@@ -229,7 +229,7 @@ render=()=>{
               <div class="footer_dv">
                   <h4>About us</h4>
                   
-                  <img class="img-responsive" src="http://via.placeholder.com/250x150" alt="about"/>
+                  <img class="img-responsive" src="https://lh3.googleusercontent.com/xUYpdoohv4wqwv5NPtkdITvPtnpLEiWOJE6XEq2EWpUwmDlrs5vp_VE07Cd8XFjTRGkmKT1lp77AHQ=w1366-h662-rw" alt="about"/>
                   <p></p>
                   <p>reddit </p>
               </div>
@@ -237,10 +237,10 @@ render=()=>{
           <div class="col-lg-3 col-md-4 col-sm-4">
               <div class="footer_dv">
                   <h4>Quick Link</h4>
-                  <div class="line-dash"></div>
+                  <div class="line-dash">saicharan</div>
                   <ul>
                       <li><a class="a-font" href="#">Home</a></li>
-                      <li><a class="a-font" href="#">About</a></li>
+                      <li><a class="a-font" href="#">About charan</a></li>
                       <li><a class="a-font" href="https://www.facebook.com/profile.php?id=100008850547118">facebook</a></li>
                       <li><a class="a-font" href="#">Blog</a></li>
                       <li><a class="a-font" href="#">Police Privacy</a></li>
