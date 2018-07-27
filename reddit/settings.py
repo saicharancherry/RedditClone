@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import datetime
 import dj_database_url
-import mainapp
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -65,7 +64,6 @@ ALLOWED_HOSTS = ['redditmrnd.herokuapp.com','127.0.0.1',]
 # Application definition
 
 INSTALLED_APPS = [
-    'mainapp.cors.CorsMiddleware',
     'mainapp.apps.MainappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,7 +86,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     'mainapp.cors.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'reddit.urls'
