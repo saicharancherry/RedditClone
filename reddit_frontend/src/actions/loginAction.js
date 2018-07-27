@@ -12,7 +12,7 @@ export const LoginAction=(UserCredentials)=>dispatch=>{
         headers:{
             'content-type':'application/json'
         },
-        
+        mode:'cors'
     }
 ).then(function(response){
     return response.json();

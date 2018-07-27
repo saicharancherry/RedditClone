@@ -14,6 +14,11 @@ import Postform from './components/postform'
 import Createcommunity from './components/createCommunity'
 import Logout from './components/logout'
 import Signup from './components/signup'
+const cors = require('cors');
+const express = require('express')
+let app = express();
+app.use(cors());
+app.options('*', cors());
 
 class App extends Component {
   render() {

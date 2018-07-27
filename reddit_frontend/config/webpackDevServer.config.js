@@ -75,9 +75,9 @@ module.exports = function(proxy, allowedHost) {
     host: host,
     headers: {
       'Access-Control-Allow-Origin': 'https://redditmrnd.herokuapp.com/',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type','authorization','Accept',
       'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Methods': 'POST', 'GET', 'OPTIONS','PUT','DELETE'
+      'Access-Control-Allow-Methods': 'POST', 'GET', 'OPTIONS','PUT','DELETE',
 
     },
 
