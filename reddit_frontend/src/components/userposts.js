@@ -22,7 +22,9 @@ componentWillReceiveProps(nextprops){
     console.log('post componentwill...........')
     if(nextprops.postobj){
         console.log('auth name will component')
+        if(this.cookie.get('jwttoken')){
          this.props.Userposts(nextprops.newuser,this.cookie.get('jwttoken').token);
+         }
     }
 }
 

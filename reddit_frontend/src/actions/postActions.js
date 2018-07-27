@@ -5,6 +5,7 @@ export const fetchPosts=(username,token)=>dispatch=>{
     console.log(username,token)
     fetch("https://redditmrnd.herokuapp.com/posts/" + username+"/",{
             method:'GET',
+             mode:'cors',
             headers:new Headers({
                 'Authorization':'JWT '+token,
             }),
@@ -24,7 +25,7 @@ export const fetchRealtimePosts=()=>dispatch=>{
     console.log('post fetching......\nusername: token:')
     fetch("https://newsapi.org/v2/top-headlines?country=IN&category=science&apiKey=cd5254ebf7174e8292375b098481ad3a",{
             method:'GET',
-            
+             mode:'cors',
     }).
     then(function(response){return response.json();})
     .then((postdata)=>(
@@ -41,6 +42,7 @@ export const fetchCommunities=(token)=>dispatch=>{
     console.log('fetccching communities')
     fetch("https://redditmrnd.herokuapp.com/communities/",{
             method:'GET',
+            mode:'cors',
             headers:new Headers({
                 'Authorization':'JWT '+token,
                 
@@ -62,11 +64,12 @@ export const createPost=(postData,token)=>dispatch=>{
     console.log(this.state,this.props)
     fetch("https://redditmrnd.herokuapp.com/createpost/",{
         method:'POST',
+        mode:'cors',
         body:JSON.stringify(postData),
         headers:new Headers({
             'Authorization':'JWT '+ token,
         }),
-        mode:'cors',
+
     }
 ).then(function(response){
     return response;
@@ -82,13 +85,14 @@ export const createComm=(postData,token)=>dispatch=>{
     console.log(this.state,this.props)
     fetch("https://redditmrnd.herokuapp.com/createcommunity/",{
         method:'POST',
+        mode:'cors',
         body:JSON.stringify(postData),
         headers:new Headers({
             'Authorization':'JWT '+ token,
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         }),
-        mode:'cors',
+
     }
 ).then(function(response){
     return response;
@@ -106,12 +110,13 @@ export const subscribeCommunity=(value,name,token)=>dispatch=>{
         method:'POST',
         body:JSON.stringify({rid:value,username:name}),
         credentials:'same-origin',
+        mode:'cors',
         headers:new Headers({
             'Authorization':'JWT '+ token,
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         }),
-        mode:'cors',
+
     }
 ).then(function(response){
     return response;

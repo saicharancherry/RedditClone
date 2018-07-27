@@ -17,7 +17,9 @@ componentDidMount(){
       // console.log(this.props.postobj)
     //if(this.props.postobj.isAuthenticated){
         console.log('community entered...')
+        if(this.cookie.get('jwttoken')){
         this.props.fetchCommunities(this.cookie.get('jwttoken').token);
+        }
      //} 
 }
 
