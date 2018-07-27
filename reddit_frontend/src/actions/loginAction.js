@@ -8,7 +8,7 @@ export const LoginAction=(UserCredentials)=>dispatch=>{
     {
         method:'POST',
         body:JSON.stringify(UserCredentials),
-        credentials:'include',
+        credentials:'same-origin',
         headers:{
             'content-type':'application/json'
         },
@@ -41,7 +41,7 @@ export const SignupAction=(UserCredentials)=>dispatch=>{
     {
         method:'POST',
         body:JSON.stringify(UserCredentials),
-        credentials:'include',
+        credentials:'same-origin',
         headers:{
             'content-type':'application/json'
         },

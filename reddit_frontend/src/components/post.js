@@ -48,7 +48,7 @@ componentWillMount(){
 componentDidUpdate(prevProps){
     console.log('i entered')
         console.log(this.props.username,prevProps.username)
-        if((this.props.comm !=prevProps.comm)){
+        if((this.props.username!==prevProps.username) || (this.props.comm !=prevProps.comm)){
             if(new Cookies().get('jwttoken')){
             console.log("componentdid=mobt fetcommmm")
          this.props.fetchPosts(this.props.username,new Cookies().get('jwttoken').token);

@@ -63,7 +63,6 @@ export const createPost=(postData,token)=>dispatch=>{
     fetch("https://redditmrnd.herokuapp.com/createpost/",{
         method:'POST',
         body:JSON.stringify(postData),
-        credentials:'same-origin',
         headers:new Headers({
             'Authorization':'JWT '+ token,
         }),
@@ -84,7 +83,6 @@ export const createComm=(postData,token)=>dispatch=>{
     fetch("https://redditmrnd.herokuapp.com/createcommunity/",{
         method:'POST',
         body:JSON.stringify(postData),
-        credentials:'same-origin',
         headers:new Headers({
             'Authorization':'JWT '+ token,
             'Accept': 'application/json',
