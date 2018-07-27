@@ -10,7 +10,9 @@ export const LoginAction=(UserCredentials)=>dispatch=>{
         body:JSON.stringify(UserCredentials),
         credentials:'same-origin',
         headers:{
+            'content-type':'application/json'
         },
+        
     }
 ).then(function(response){
     return response.json();
@@ -41,7 +43,9 @@ export const SignupAction=(UserCredentials)=>dispatch=>{
         body:JSON.stringify(UserCredentials),
         credentials:'same-origin',
         headers:{
+            'content-type':'application/json'
         },
+        
     }
 ).then(function(response){
     return response.json();

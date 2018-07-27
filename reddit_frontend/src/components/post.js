@@ -233,7 +233,7 @@ render=()=>{
               <div class="footer_dv">
                   <h4>About us</h4>
                   
-                  <img class="img-responsive" src="https://lh3.googleusercontent.com/xUYpdoohv4wqwv5NPtkdITvPtnpLEiWOJE6XEq2EWpUwmDlrs5vp_VE07Cd8XFjTRGkmKT1lp77AHQ=w1366-h662-rw" alt="about"/>
+                  <img class="img-responsive" src="" alt="about"/>
                   <p></p>
                   <p>reddit </p>
               </div>
