@@ -18,6 +18,35 @@ import dj_database_url
 BASE_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 db_from_env=dj_database_url.config()
 
+# CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'https://redditmrnd.herokuapp.com/',
+)
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
+CORS_ALLOW_CREDENTIALS=True
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -58,16 +87,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'mainapp.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'reddit.urls'
-# CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_ALLOW_ALL = False
-
-CORS_ORIGIN_WHITELIST = (
-    'https://redditmrnd.herokuapp.com/',
-)
 
 TEMPLATES = [
     {
