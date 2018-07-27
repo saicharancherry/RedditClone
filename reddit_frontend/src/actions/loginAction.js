@@ -7,6 +7,7 @@ export const LoginAction=(UserCredentials)=>dispatch=>{
     fetch("https://redditmrnd.herokuapp.com/login/auth-jwt/",
     {
         method:'POST',
+        mode:'cors',
         body:JSON.stringify(UserCredentials),
         credentials:'same-origin',
         headers:{
@@ -41,6 +42,7 @@ export const SignupAction=(UserCredentials)=>dispatch=>{
     {
         method:'POST',
         body:JSON.stringify(UserCredentials),
+        mode:'cors',
         credentials:'same-origin',
         headers:{
             'content-type':'application/json'

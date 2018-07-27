@@ -5,6 +5,7 @@ export const fetchPosts=(username,token)=>dispatch=>{
     console.log(username,token)
     fetch("https://redditmrnd.herokuapp.com/posts/" + username+"/",{
             method:'GET',
+            mode:'cors',
             headers:new Headers({
                 'Authorization':'JWT '+token,
                 'content-type':'application/json',
@@ -43,6 +44,7 @@ export const fetchCommunities=(token)=>dispatch=>{
     console.log('fetccching communities')
     fetch("https://redditmrnd.herokuapp.com/communities/",{
             method:'GET',
+            mode:'cors',
             headers:new Headers({
                 'Authorization':'JWT '+token,
                 'content-type':'application/json',
@@ -65,6 +67,7 @@ export const createPost=(postData,token)=>dispatch=>{
     console.log(this.state,this.props)
     fetch("https://redditmrnd.herokuapp.com/createpost/",{
         method:'POST',
+        mode:'cors',
         body:JSON.stringify(postData),
         headers:new Headers({
             'Authorization':'JWT '+ token,
@@ -85,6 +88,7 @@ export const createComm=(postData,token)=>dispatch=>{
     console.log(this.state,this.props)
     fetch("https://redditmrnd.herokuapp.com/createcommunity/",{
         method:'POST',
+        mode:'cors',
         body:JSON.stringify(postData),
         headers:new Headers({
             'Authorization':'JWT '+ token,
@@ -109,6 +113,7 @@ export const subscribeCommunity=(value,name,token)=>dispatch=>{
         method:'POST',
         body:JSON.stringify({rid:value,username:name}),
         credentials:'same-origin',
+        mode:'cors',
         headers:new Headers({
             'Authorization':'JWT '+ token,
             'Accept': 'application/json',
@@ -128,6 +133,7 @@ export const DeletePosts=(id,token)=>dispatch=>{
     console.log('dleteing post......')
     fetch("https://redditmrnd.herokuapp.com/deletepost/",{
         method:'DELETE',
+        mode:'cors',
         body:JSON.stringify({pid:id}),
         credentials:'same-origin',
         headers:new Headers({
