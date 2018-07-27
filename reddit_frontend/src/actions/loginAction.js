@@ -4,10 +4,9 @@ const cookies=new Cookies();
 
 export const LoginAction=(UserCredentials)=>dispatch=>{
     console.log('loginAcition fetching......');
-    fetch("https://redditmrnd.herokuapp.com/login/auth-jwt/",
+    fetch("/login/auth-jwt/",
     {
         method:'POST',
-        mode:'cors',
         body:JSON.stringify(UserCredentials),
         credentials:'same-origin',
         headers:{
@@ -38,11 +37,10 @@ export const LogoutAction=()=>dispatch=>{
 
 export const SignupAction=(UserCredentials)=>dispatch=>{
     console.log('signupAcition fetching......');
-    fetch("https://redditmrnd.herokuapp.com/u/signup/",
+    fetch("/u/signup/",
     {
         method:'POST',
         body:JSON.stringify(UserCredentials),
-        mode:'cors',
         credentials:'same-origin',
         headers:{
             'content-type':'application/json'

@@ -20,11 +20,11 @@ db_from_env=dj_database_url.config()
 
 # CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = (
-    'https://redditmrnd.herokuapp.com/',
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'https://redditmrnd.herokuapp.com/',
+# )
 CORS_ALLOW_METHODS = (
     'DELETE',
     'GET',

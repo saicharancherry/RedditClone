@@ -5,7 +5,6 @@ export const fetchPosts=(username,token)=>dispatch=>{
     console.log(username,token)
     fetch("https://redditmrnd.herokuapp.com/posts/" + username+"/",{
             method:'GET',
-            mode:'cors',
             headers:new Headers({
                 'Authorization':'JWT '+token,
                 'content-type':'application/json',
@@ -42,9 +41,8 @@ export const fetchRealtimePosts=()=>dispatch=>{
 
 export const fetchCommunities=(token)=>dispatch=>{
     console.log('fetccching communities')
-    fetch("https://redditmrnd.herokuapp.com/communities/",{
+    fetch("/communities/",{
             method:'GET',
-            mode:'cors',
             headers:new Headers({
                 'Authorization':'JWT '+token,
                 'content-type':'application/json',
@@ -65,9 +63,8 @@ export const fetchCommunities=(token)=>dispatch=>{
 export const createPost=(postData,token)=>dispatch=>{
     console.log('communitiesfetching......')
     console.log(this.state,this.props)
-    fetch("https://redditmrnd.herokuapp.com/createpost/",{
+    fetch("/createpost/",{
         method:'POST',
-        mode:'cors',
         body:JSON.stringify(postData),
         headers:new Headers({
             'Authorization':'JWT '+ token,
@@ -86,9 +83,8 @@ export const createPost=(postData,token)=>dispatch=>{
 export const createComm=(postData,token)=>dispatch=>{
     console.log('communitiesfetching......')
     console.log(this.state,this.props)
-    fetch("https://redditmrnd.herokuapp.com/createcommunity/",{
+    fetch("/createcommunity/",{
         method:'POST',
-        mode:'cors',
         body:JSON.stringify(postData),
         headers:new Headers({
             'Authorization':'JWT '+ token,
@@ -109,11 +105,10 @@ export const createComm=(postData,token)=>dispatch=>{
 
 export const subscribeCommunity=(value,name,token)=>dispatch=>{
     console.log('communitiesfetching......')
-    fetch("https://redditmrnd.herokuapp.com/subscribecommunity/",{
+    fetch("/subscribecommunity/",{
         method:'POST',
         body:JSON.stringify({rid:value,username:name}),
         credentials:'same-origin',
-        mode:'cors',
         headers:new Headers({
             'Authorization':'JWT '+ token,
             'Accept': 'application/json',
@@ -131,9 +126,8 @@ export const subscribeCommunity=(value,name,token)=>dispatch=>{
 } 
 export const DeletePosts=(id,token)=>dispatch=>{
     console.log('dleteing post......')
-    fetch("https://redditmrnd.herokuapp.com/deletepost/",{
+    fetch("/deletepost/",{
         method:'DELETE',
-        mode:'cors',
         body:JSON.stringify({pid:id}),
         credentials:'same-origin',
         headers:new Headers({
