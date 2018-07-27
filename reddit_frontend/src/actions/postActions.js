@@ -7,6 +7,8 @@ export const fetchPosts=(username,token)=>dispatch=>{
             method:'GET',
             headers:new Headers({
                 'Authorization':'JWT '+token,
+                'content-type':'application/json'
+
             }),
     }).
     then(function(response){return response.json();})
@@ -42,7 +44,7 @@ export const fetchCommunities=(token)=>dispatch=>{
             method:'GET',
             headers:new Headers({
                 'Authorization':'JWT '+token,
-                
+                'content-type':'application/json'
             }),
     }).
     then(function(response){return response.json();})
@@ -64,6 +66,8 @@ export const createPost=(postData,token)=>dispatch=>{
         body:JSON.stringify(postData),
         headers:new Headers({
             'Authorization':'JWT '+ token,
+            'content-type':'application/json'
+
         }),
     }
 ).then(function(response){
