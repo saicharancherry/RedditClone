@@ -12,7 +12,7 @@ export const LoginAction=(UserCredentials)=>dispatch=>{
         headers:{
             'content-type':'application/json'
         },
-        mode:'cors'
+        mode:'no-cors'
     }
 ).then(function(response){
     return response.json();
@@ -45,7 +45,7 @@ export const SignupAction=(UserCredentials)=>dispatch=>{
         headers:{
             'content-type':'application/json'
         },
-        mode:'cors',
+        mode:'no-cors',
     }
 ).then(function(response){
     return response.json();
