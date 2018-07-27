@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['redditmrnd.herokuapp.com','127.0.0.1',]
 # Application definition
 
 INSTALLED_APPS = [
+    'mainapp.cors.CorsMiddleware',
     'mainapp.apps.MainappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,9 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
      'webpack_loader',
+      'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,7 +61,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'reddit.urls'
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'https://redditmrnd.herokuapp.com/',
+)
 
 TEMPLATES = [
     {
