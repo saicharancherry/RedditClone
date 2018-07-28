@@ -46,7 +46,7 @@ class Createcommunity extends Component{
         }
         console.log('entered  community submit form');
         console.log(this.cookies.get('jwttoken').token)
-        if(this.cookie.get('jwttoken')){
+        if(this.cookies.get('jwttoken')){
         this.props.createComm(commData,this.cookies.get('jwttoken').token)
         }
         
